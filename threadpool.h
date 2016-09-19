@@ -10,30 +10,27 @@
 #include <assert.h>
 #include "chat.h"
 
-typedef struct worker
-{
+typedef struct worker {
 	void * (* process)(void *arg);
 	void * arg;
 	struct worker * next;
-}mythread_worker;
+} mythread_worker;
 
-typedef struct 
-{
+typedef struct {
 	pthread_mutex_t queue_lock;
 	pthread_cond_t queue_ready;
-	
+
 	mythread_worker * queue_head;
-	
+
 	int is_shutdown;
 
 	pthread_t *threadid;
-	
+
 	int max_thread_num;
 	int cur_queue_size;
-}mythread_pool;
+} mythread_pool;
 
-typedef struct arg_t
-{
+typedef struct arg_t {
 	int fd;
 	char buf[MAXBUFARG+1];
 } arg_t;

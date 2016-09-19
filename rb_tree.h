@@ -10,14 +10,12 @@
 typedef int key_t;
 // typedef int data_t;
 
-typedef enum mycolor
-{
+typedef enum mycolor {
 	RED=0,
 	BLACK=1
 } color_t;
 
-typedef struct rb_node_t
-{
+typedef struct rb_node_t {
 	struct rb_node_t *left,*right,*p;
 	key_t key;
 	char name[8];

@@ -28,20 +28,17 @@
 #define CLIPORT 7777
 #define HASHNUM 1003
 
-typedef struct iplist
-{
+typedef struct iplist {
 	char ip[16];
 	struct iplist * next;
 } iplist;
 
-typedef struct roomlist
-{
+typedef struct roomlist {
 	char roomname[8];
 	struct roomlist * next;
 } roomlist;
 
-typedef struct room_t
-{
+typedef struct room_t {
 	char roomname[8];
 	int num;
 	node_t * roommate;
@@ -51,8 +48,7 @@ typedef struct room_t
 	pthread_rwlock_t listlock;
 } room_t;
 
-typedef struct
-{
+typedef struct {
 	room_t * head;
 	int num;
 	roomlist * firstroom;
