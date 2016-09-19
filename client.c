@@ -110,8 +110,7 @@ int getmsg(char *buf) {
 			p+=2;
 			if (strlen(p)>7 || strlen(p)<1 || *(p-1)=='\0') {
 				printf("your name should be shorter then 7 chars and longer then 1 char\n\n");
-			}
-			else {
+			} else {
 				if (userinfo->room[0]!='\0')
 					printf("you can not change your name,while chating\n\n");
 				else {
@@ -124,8 +123,7 @@ int getmsg(char *buf) {
 			p+=2;
 			if (strlen(p)>7 || strlen(p)<1 || *(p-1)=='\0') {
 				printf("room name should be shorter then 7 chars and longer then 1 char\n\n");
-			}
-			else {
+			} else {
 				sprintf(sendbuf,"c02%s",p);
 				flag=1;
 			}
