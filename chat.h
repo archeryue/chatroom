@@ -29,30 +29,30 @@
 #define HASHNUM 1003
 
 typedef struct iplist {
-	char ip[16];
-	struct iplist * next;
+    char ip[16];
+    struct iplist * next;
 } iplist;
 
 typedef struct roomlist {
-	char roomname[8];
-	struct roomlist * next;
+    char roomname[8];
+    struct roomlist * next;
 } roomlist;
 
 typedef struct room_t {
-	char roomname[8];
-	int num;
-	node_t * roommate;
-	struct room_t * next;
-	iplist * firstip;
-	pthread_rwlock_t rblock;
-	pthread_rwlock_t listlock;
+    char roomname[8];
+    int num;
+    node_t * roommate;
+    struct room_t * next;
+    iplist * firstip;
+    pthread_rwlock_t rblock;
+    pthread_rwlock_t listlock;
 } room_t;
 
 typedef struct {
-	room_t * head;
-	int num;
-	roomlist * firstroom;
-	pthread_rwlock_t roomlock;
+    room_t * head;
+    int num;
+    roomlist * firstroom;
+    pthread_rwlock_t roomlock;
 } chat_t;
 
 #endif

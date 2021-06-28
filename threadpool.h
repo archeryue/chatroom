@@ -11,28 +11,28 @@
 #include "chat.h"
 
 typedef struct worker {
-	void * (* process)(void *arg);
-	void * arg;
-	struct worker * next;
+    void * (* process)(void *arg);
+    void * arg;
+    struct worker * next;
 } mythread_worker;
 
 typedef struct {
-	pthread_mutex_t queue_lock;
-	pthread_cond_t queue_ready;
+    pthread_mutex_t queue_lock;
+    pthread_cond_t queue_ready;
 
-	mythread_worker * queue_head;
+    mythread_worker * queue_head;
 
-	int is_shutdown;
+    int is_shutdown;
 
-	pthread_t *threadid;
+    pthread_t *threadid;
 
-	int max_thread_num;
-	int cur_queue_size;
+    int max_thread_num;
+    int cur_queue_size;
 } mythread_pool;
 
 typedef struct arg_t {
-	int fd;
-	char buf[MAXBUFARG+1];
+    int fd;
+    char buf[MAXBUFARG+1];
 } arg_t;
 
 int pool_add_worker(void *(process)(void *arg),void *arg);
