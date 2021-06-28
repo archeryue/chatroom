@@ -224,7 +224,7 @@ void * talk(void *arg) {
     pthread_rwlock_unlock(&(find->listlock));
 }
 
-void *private_talk(void *arg) {
+void * private_talk(void *arg) {
     char * buf=((arg_t *)arg)->buf;
     int fd=((arg_t *)arg)->fd;
     char *p,*ip,*room,*srcname,*dstname,*content;
