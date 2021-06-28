@@ -106,7 +106,7 @@ int pool_destroy() {
         pthread_join(pool->threadid[i],NULL);
     free(pool->threadid);
     //make sure every thread is done;
-    mythread_worker * p=NULL;
+    mythread_worker* p=NULL;
     while (pool->queue_head!=NULL) {
         p=pool->queue_head;
         pool->queue_head=p->next;
