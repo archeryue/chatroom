@@ -23,11 +23,11 @@ static node_t * new_node(int key,char * name,char *ip) {
 static node_t * rotate_left(node_t * node,node_t * root) {
     node_t * right=node->right;
 
-    if (node->right=right->left)
+    if ((node->right=right->left))
         right->left->p=node;
     right->left=node;
 
-    if (right->p=node->p) {
+    if ((right->p=node->p)) {
         if (node == node->p->left)
             node->p->left=right;
         else
@@ -44,11 +44,11 @@ static node_t * rotate_left(node_t * node,node_t * root) {
 static node_t * rotate_right(node_t * node,node_t * root) {
     node_t * left=node->left;
 
-    if (node->left=left->right)
+    if ((node->left=left->right))
         left->right->p=node;
     left->right=node;
 
-    if (left->p=node->p) {
+    if ((left->p=node->p)) {
         if (node == node->p->left)
             node->p->left=left;
         else
@@ -94,7 +94,7 @@ node_t * rb_insert(key_t key,char * name,char * ip,node_t * root) {
     node_t *p=NULL;
     node_t *node=NULL;
 
-    if (node=rb_search_auxiliary(key,root,&p)) {
+    if ((node=rb_search_auxiliary(key,root,&p))) {
         return root;
     }
     node=new_node(key,name,ip);
@@ -168,7 +168,7 @@ node_t * rb_delete(key_t key,node_t * root) {
     node_t * left,*child;
     color_t color;
 
-    if(node=rb_search_auxiliary(key,root,NULL)) {
+    if((node=rb_search_auxiliary(key,root,NULL))) {
         old=node;
     } else {
         printf("this key doesn`t exist!\n");
@@ -177,7 +177,7 @@ node_t * rb_delete(key_t key,node_t * root) {
 
     if (node->left && node->right) {
         old=node->right;
-        while(left=old->left) old=left;
+        while((left=old->left)) old=left;
     }
 
     if (old->left)
